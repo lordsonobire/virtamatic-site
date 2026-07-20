@@ -489,6 +489,7 @@ footer{padding:48px 0;text-align:center;color:var(--muted);font-size:14px;border
     </div>
     <form id="form" onsubmit="return submitForm(event)">
       <div id="formInner">
+        <input name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">
         <label>Your name</label><input name="name" placeholder="Matti Meikäläinen" required>
         <label>Business name</label><input name="business" placeholder="Your business" required>
         <label>Email or phone</label><input name="contact" placeholder="you@business.fi" required>
@@ -498,7 +499,7 @@ footer{padding:48px 0;text-align:center;color:var(--muted);font-size:14px;border
         <textarea name="msg" placeholder="e.g. we keep missing calls when we're busy..."></textarea>
         <button type="submit" class="btn btn-brand mag">Get my free audit →</button>
       </div>
-      <div class="ok" id="ok"><div class="big">⚡</div><h3 class="brand-h" style="font-size:24px">Opening your email…</h3><p style="color:var(--muted);margin-top:10px">Your message is ready to send. We reply within one business day.</p></div>
+      <div class="ok" id="ok"><div class="big">⚡</div><h3 class="brand-h" style="font-size:24px">Request sent!</h3><p style="color:var(--muted);margin-top:10px">We got it — we reply within one business day.</p></div>
     </form>
   </div>
 </section>
@@ -603,7 +604,25 @@ const chars=[...ch.querySelectorAll('.char')];
 function onChars(){const r=ch.getBoundingClientRect();const start=innerHeight*0.85,end=innerHeight*0.35;const p=Math.min(Math.max((start-r.top)/(start-end),0),1);const lit=Math.floor(p*chars.length);chars.forEach((c,i)=>c.style.opacity=i<=lit?1:0.18);}
 addEventListener('scroll',onChars,{passive:true});onChars();
 
-function submitForm(e){e.preventDefault();const f=e.target;const s=encodeURIComponent('Free automation audit — '+(f.business.value||'New enquiry'));const b=encodeURIComponent(`Name: ${f.name.value}\nBusiness: ${f.business.value}\nContact: ${f.contact.value}\nType: ${f.type.value}\n\nWants to automate:\n${f.msg.value}`);document.getElementById('formInner').style.display='none';document.getElementById('ok').classList.add('show');setTimeout(()=>{window.location.href='mailto:hello@virtamatic.com?subject='+s+'&body='+b;},600);return false;}
+async function submitForm(e){
+  e.preventDefault();
+  const f=e.target;
+  const btn=f.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending…';
+  const lead={website:f.website.value,name:f.name.value,business:f.business.value,contact:f.contact.value,type:f.type.value,msg:f.msg.value};
+  let sent=false;
+  try{
+    const r=await fetch('/api/lead',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(lead)});
+    sent=r.ok;
+  }catch(_){/* network error -> fall back to mailto below */}
+  document.getElementById('formInner').style.display='none';
+  document.getElementById('ok').classList.add('show');
+  if(!sent){
+    const s=encodeURIComponent('Free automation audit — '+(f.business.value||'New enquiry'));
+    const b=encodeURIComponent(`Name: ${f.name.value}\nBusiness: ${f.business.value}\nContact: ${f.contact.value}\nType: ${f.type.value}\n\nWants to automate:\n${f.msg.value}`);
+    setTimeout(()=>{window.location.href='mailto:hello@virtamatic.com?subject='+s+'&body='+b;},600);
+  }
+  return false;
+}
 </script>
 </body>
 </html>
