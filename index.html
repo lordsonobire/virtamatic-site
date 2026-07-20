@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virtamatic — Automate the boring. Book more customers.</title>
+<meta name="description" content="Virtamatic installs AI that answers your customers 24/7, books appointments automatically, and follows up on every lead — for local businesses in Lahti, Helsinki and across Finland.">
+<link rel="canonical" href="https://virtamatic.com/">
+<meta name="theme-color" content="#08080d">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Virtamatic">
+<meta property="og:url" content="https://virtamatic.com/">
+<meta property="og:title" content="Virtamatic — Automate the boring. Book more customers.">
+<meta property="og:description" content="AI that answers your customers 24/7, books appointments automatically, and follows up on every lead. For local businesses in Lahti, Helsinki & across Finland.">
+<meta property="og:image" content="https://virtamatic.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Virtamatic — Automate the boring. Book more customers.">
+<meta name="twitter:description" content="AI that answers customers 24/7, books appointments, and follows up on every lead.">
+<meta name="twitter:image" content="https://virtamatic.com/og-image.png">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff5c2a'/%3E%3Cstop offset='1' stop-color='%23ffb020'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Cpath d='M17 5 L9 18 h6 l-2 9 8-13 h-6 z' fill='%23140a02'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08080d; --card:#12121f; --line:#20202f; --ink:#eef1ff; --muted:#a2a3b8;
+  --o1:#ff5c2a; --o2:#ffb020; --v:#6d5cff;
+  --brand:linear-gradient(115deg,#ff5c2a 0%,#ffb020 100%);
+  --ai:linear-gradient(135deg,#6d5cff 0%,#ff5c2a 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',sans-serif;overflow-x:clip;line-height:1.55}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.grad-h{background:linear-gradient(180deg,#8a8fa0 0%,#edf1ff 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.brand-h{background:var(--brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eyebrow{font-size:12.5px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--o2)}
+
+.bg-layer{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.4}
+.orb.a{width:560px;height:560px;background:var(--o1);top:-160px;right:-120px;animation:float1 22s ease-in-out infinite}
+.orb.b{width:480px;height:480px;background:var(--v);bottom:-180px;left:-140px;opacity:.34;animation:float2 26s ease-in-out infinite}
+.orb.c{width:360px;height:360px;background:var(--o2);top:40%;left:45%;opacity:.14;animation:float1 30s ease-in-out infinite}
+.bg-grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.05;mask-image:radial-gradient(circle at 50% 30%,#000,transparent 80%)}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,50px) scale(1.08)}}
+@keyframes float2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-40px) scale(1.1)}}
+
+.btn{display:inline-block;font-weight:600;cursor:pointer;border:none;font-family:inherit;transition:transform .18s ease,box-shadow .18s ease;text-transform:uppercase;letter-spacing:1.5px;font-size:13px}
+.btn-brand{background:var(--brand);color:#160a02;padding:15px 30px;border-radius:100px;box-shadow:0 10px 34px rgba(255,92,42,.35),inset 0 0 0 2px rgba(255,255,255,.08)}
+.btn-brand:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 16px 48px rgba(255,92,42,.55)}
+.btn-ghost{background:transparent;color:var(--ink);padding:15px 30px;border-radius:100px;border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--o1);background:rgba(255,255,255,.04)}
+.mag{will-change:transform}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:60;backdrop-filter:blur(14px);background:rgba(8,8,13,.6);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+nav.scrolled{border-color:var(--line);background:rgba(8,8,13,.85)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-weight:700;font-size:22px;letter-spacing:-.5px;display:flex;align-items:center;gap:9px}
+.logo .dot{width:30px;height:30px;border-radius:9px;background:var(--brand);display:grid;place-items:center;font-size:16px;color:#160a02}
+.nav-links{display:flex;gap:26px;font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.nav-links a:hover{color:#fff}
+.nav .btn{font-size:11px;padding:11px 20px}
+@media(max-width:900px){.nav-links{display:none}}
+
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.25,.1,.25,1),transform .8s cubic-bezier(.25,.1,.25,1)}
+.reveal.in{opacity:1;transform:none}
+
+header{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;padding:120px 24px 80px;overflow:clip}
+.badge{display:inline-flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);padding:8px 16px;border-radius:100px;font-size:13px;color:var(--muted);margin-bottom:26px}
+.badge b{color:#28d67b}
+.hero h1{font-weight:700;text-transform:uppercase;letter-spacing:-.03em;line-height:.92;font-size:clamp(42px,10.5vw,150px)}
+.hero .sub{color:#d7e2ea;font-weight:300;max-width:640px;margin:26px auto 0;font-size:clamp(15px,1.9vw,20px)}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.float-card{position:absolute;background:rgba(20,20,32,.55);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:14px 18px;box-shadow:0 20px 60px rgba(0,0,0,.45);font-size:13px;color:var(--ink);will-change:transform;display:flex;gap:10px;align-items:center}
+.float-card .ic{width:34px;height:34px;border-radius:10px;background:var(--brand);display:grid;place-items:center;font-size:17px;color:#160a02;flex:none}
+.float-card small{color:var(--muted);display:block;font-size:11px}
+.fc1{top:20%;left:6%}.fc2{top:30%;right:6%}.fc3{bottom:24%;left:10%}.fc4{bottom:20%;right:9%}
+@media(max-width:820px){.float-card{display:none}}
+.scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:11px;letter-spacing:2px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollcue .chev{width:20px;height:20px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);animation:bob 1.6s infinite}
+@keyframes bob{0%,100%{transform:rotate(45deg) translate(0,0);opacity:.4}50%{transform:rotate(45deg) translate(4px,4px);opacity:1}}
+
+.st{opacity:0;transform:translateY(40px);animation:rise .9s cubic-bezier(.25,.1,.25,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+
+.zoom-sec{height:240vh;position:relative}
+.zoom-sticky{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden}
+.zoom-core{position:absolute;display:grid;place-items:center;will-change:transform,opacity}
+.core-panel{width:min(60vw,420px);aspect-ratio:1.3/1;border-radius:32px;background:var(--card);display:grid;place-items:center;position:relative;border:2px solid transparent;background-clip:padding-box;box-shadow:0 30px 100px rgba(109,92,255,.35)}
+.core-panel:before{content:"";position:absolute;inset:-2px;border-radius:32px;background:var(--ai);z-index:-1}
+.core-panel .glyph{font-size:clamp(60px,9vw,120px);font-weight:700}
+.zoom-reveal{position:absolute;text-align:center;max-width:800px;padding:0 24px;will-change:transform,opacity;opacity:0}
+.zoom-reveal h2{font-weight:700;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;font-size:clamp(34px,7vw,96px)}
+.zoom-reveal p{color:#d7e2ea;font-weight:300;margin-top:20px;font-size:clamp(15px,2vw,20px)}
+.streak{position:absolute;height:2px;background:linear-gradient(90deg,transparent,var(--o1),transparent);will-change:transform,opacity;opacity:0}
+
+section.blk{padding:110px 0;position:relative}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 60px}
+.sec-head h2{font-weight:700;text-transform:uppercase;letter-spacing:-.02em;line-height:1;font-size:clamp(34px,7vw,110px);margin-top:14px}
+.sec-head p{color:var(--muted);margin-top:16px;font-size:17px}
+
+.marq{overflow:hidden;padding:14px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marq-track{display:flex;gap:14px;width:max-content;animation:scrollx 38s linear infinite}
+.marq.rev .marq-track{animation-direction:reverse;animation-duration:46s}
+.marq:hover .marq-track{animation-play-state:paused}
+.chip{display:flex;gap:9px;align-items:center;white-space:nowrap;border:1px solid var(--line);background:var(--card);padding:12px 22px;border-radius:100px;font-size:14px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.chip .d{width:8px;height:8px;border-radius:50%;background:var(--brand)}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 18px;text-align:center;transition:transform .2s,border-color .2s,box-shadow .2s}
+.stat:hover{transform:translateY(-4px);border-color:var(--o1);box-shadow:0 20px 50px rgba(255,92,42,.14)}
+.stat .n{font-size:clamp(30px,4.4vw,46px);font-weight:700;line-height:1}
+.stat .l{color:var(--muted);font-size:13.5px;margin-top:8px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px;position:relative;overflow:hidden;transform-style:preserve-3d;transition:border-color .2s;will-change:transform}
+.tcard .glow{position:absolute;width:340px;height:340px;background:radial-gradient(circle,rgba(255,92,42,.22),transparent 60%);pointer-events:none;opacity:0;transition:opacity .3s;transform:translate(-50%,-50%)}
+.tcard:hover{border-color:var(--o1)}
+.tcard:hover .glow{opacity:1}
+.tcard .ic{width:56px;height:56px;border-radius:15px;background:var(--brand);display:grid;place-items:center;font-size:26px;margin-bottom:20px;color:#160a02}
+.tcard h3{font-size:22px;font-weight:600;margin-bottom:10px}
+.tcard p{color:var(--muted);font-size:15px}
+.tcard .n{position:absolute;top:22px;right:26px;font-size:20px;font-weight:700;color:var(--line)}
+@media(max-width:760px){.cards{grid-template-columns:1fr}}
+
+/* DEMO */
+.demo-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:36px;align-items:center}
+@media(max-width:900px){.demo-grid{grid-template-columns:1fr;gap:30px}}
+.phone{width:300px;max-width:100%;margin:0 auto;background:#0c0c16;border:2px solid var(--line);border-radius:40px;padding:14px;box-shadow:0 40px 90px rgba(0,0,0,.55);position:relative}
+.phone .notch{width:120px;height:22px;background:#0c0c16;border:2px solid var(--line);border-top:none;border-radius:0 0 16px 16px;position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:3}
+.phone .screen{background:linear-gradient(180deg,#12121f,#0a0a12);border-radius:28px;height:530px;display:flex;flex-direction:column;overflow:hidden}
+.phone .top{display:flex;gap:10px;align-items:center;padding:18px 16px 12px;border-bottom:1px solid var(--line)}
+.phone .top .av{width:34px;height:34px;border-radius:10px;background:var(--brand);display:grid;place-items:center;color:#160a02;font-size:16px;flex:none}
+.phone .top b{font-size:14px}.phone .top small{color:#28d67b;font-size:11px;display:block}
+.chatwin{flex:1;padding:16px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.cbub{max-width:82%;padding:10px 14px;border-radius:16px;font-size:13.5px;line-height:1.42;opacity:0;transform:translateY(8px);animation:pop .32s forwards}
+.cbub.them{background:#1a1a2b;align-self:flex-start;border-bottom-left-radius:5px}
+.cbub.ai{background:var(--brand);color:#160a02;align-self:flex-end;border-bottom-right-radius:5px;font-weight:500}
+@keyframes pop{to{opacity:1;transform:none}}
+.typing{align-self:flex-end;background:var(--brand);border-radius:16px;padding:12px 15px;display:flex;gap:5px}
+.typing span{width:7px;height:7px;border-radius:50%;background:#160a02;animation:blink 1s infinite}
+.typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,100%{opacity:.25}50%{opacity:.9}}
+.demo-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:520px){.demo-cards{grid-template-columns:1fr}}
+.dcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;transition:transform .2s,border-color .2s}
+.dcard:hover{transform:translateY(-4px);border-color:var(--o1)}
+.dcard h4{font-size:15px;font-weight:600;margin-bottom:3px;display:flex;gap:8px;align-items:center}
+.dcard .cap{color:var(--muted);font-size:12.5px;margin-bottom:14px}
+.cal{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.cal span{aspect-ratio:1;border-radius:8px;background:#1a1a2b;display:grid;place-items:center;font-size:11px;color:var(--muted)}
+.cal span.on{background:var(--brand);color:#160a02;font-weight:700}
+.leadrow{display:flex;gap:10px;align-items:center;background:#0c0c16;border:1px solid var(--line);border-radius:12px;padding:9px 11px;font-size:12px;margin-bottom:8px}
+.leadrow:last-child{margin-bottom:0}
+.leadrow .g{width:28px;height:28px;border-radius:8px;background:var(--brand);display:grid;place-items:center;color:#160a02;flex:none;font-size:13px}
+.leadrow b{font-size:12.5px}
+.review{background:#0c0c16;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:12px;line-height:1.4}
+.review .stars{color:var(--o2);letter-spacing:2px}
+.review .aireply{margin-top:8px;padding-top:8px;border-top:1px solid var(--line);color:var(--muted)}
+.review .aireply b{color:var(--o1)}
+.post{background:#0c0c16;border:1px solid var(--line);border-radius:12px;padding:12px;font-size:12px;color:var(--muted);line-height:1.45}
+.post .hdl{color:var(--ink);font-weight:600;margin-bottom:5px;font-size:12.5px}
+.post .tags{color:var(--o1);margin-top:6px}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px}
+.step .num{font-size:clamp(46px,7vw,96px);font-weight:700;line-height:1;margin-bottom:8px}
+.step h3{font-size:21px;font-weight:600;margin-bottom:10px}
+.step p{color:var(--muted);font-size:15px}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+.stack{position:relative}
+.stack-card{position:sticky;top:110px;border-radius:36px;border:2px solid var(--line);background:var(--card);padding:38px;overflow:hidden;will-change:transform;margin-bottom:26px}
+.stack-card:before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--brand)}
+.sc-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.sc-grid .n{font-size:clamp(50px,8vw,120px);font-weight:700;line-height:1;color:var(--line)}
+.sc-grid h3{font-size:clamp(24px,3.4vw,40px);font-weight:700;margin:6px 0 14px;text-transform:uppercase;letter-spacing:-.02em}
+.sc-grid p{color:var(--muted);font-size:16px;margin-bottom:20px}
+.metric-row{display:flex;gap:14px;flex-wrap:wrap}
+.metric{background:#0c0c16;border:1px solid var(--line);border-radius:14px;padding:14px 18px;flex:1;min-width:120px}
+.metric .mv{font-size:26px;font-weight:700}
+.metric .ml{color:var(--muted);font-size:12.5px;margin-top:2px}
+.mock{background:#0c0c16;border:1px solid var(--line);border-radius:20px;padding:18px;min-height:220px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+.bubble{max-width:80%;padding:11px 15px;border-radius:14px;font-size:14px}
+.bubble.them{background:#1a1a2b;align-self:flex-start;border-bottom-left-radius:4px}
+.bubble.ai{background:var(--brand);color:#160a02;align-self:flex-end;border-bottom-right-radius:4px;font-weight:500}
+.notif{display:flex;gap:12px;align-items:center;background:#1a1a2b;border-radius:14px;padding:13px 15px;font-size:13.5px}
+.notif .dotg{width:36px;height:36px;border-radius:10px;background:var(--brand);display:grid;place-items:center;color:#160a02;flex:none}
+@media(max-width:760px){.sc-grid{grid-template-columns:1fr;gap:18px}}
+.ps{display:flex;flex-direction:column;gap:14px;margin:14px 0 18px}
+.ps-block .ttl{font-size:11.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:7px}
+.ps-prob .ttl{color:#ff7a5c}
+.ps-sol .ttl{color:#28d67b}
+.ps ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.ps li{font-size:13.5px;color:var(--muted);display:flex;gap:8px;align-items:flex-start;line-height:1.42}
+.ps-prob li:before{content:"✕";color:#ff7a5c;font-weight:700;flex:none}
+.ps-sol li:before{content:"✓";color:#28d67b;font-weight:700;flex:none}
+
+.guar{margin:0 auto;max-width:900px;text-align:center;background:var(--ai);border-radius:22px;padding:2px}
+.guar .in{background:var(--card);border-radius:20px;padding:40px}
+.guar h3{font-size:clamp(20px,3.2vw,32px);font-weight:700}
+
+.faq{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .2s}
+.q.open{border-color:var(--o1)}
+.q button{width:100%;background:none;border:none;color:var(--ink);font-family:inherit;font-size:17px;font-weight:600;text-align:left;padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.q .plus{font-size:26px;font-weight:300;color:var(--o1);transition:transform .25s;flex:none}
+.q.open .plus{transform:rotate(45deg)}
+.q .a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.q .a p{padding:0 24px 20px;color:var(--muted);font-size:15px}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.contact h2{font-weight:700;text-transform:uppercase;letter-spacing:-.02em;line-height:1;font-size:clamp(30px,5vw,64px)}
+.contact .char{opacity:.18;transition:opacity .1s}
+.contact-copy p{color:var(--muted);margin:18px 0 22px;font-size:16px}
+.cline{display:flex;gap:12px;align-items:center;margin-bottom:13px;font-size:15px}
+.cline .ic{width:42px;height:42px;border-radius:11px;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;font-size:18px;flex:none}
+form{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px}
+form label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:7px}
+form input,form select,form textarea{width:100%;background:#0c0c16;border:1px solid var(--line);border-radius:11px;padding:13px 15px;color:var(--ink);font-family:inherit;font-size:15px;margin-bottom:16px;transition:border-color .15s}
+form input:focus,form select:focus,form textarea:focus{outline:none;border-color:var(--o1)}
+form textarea{resize:vertical;min-height:80px}
+form .btn{width:100%;text-align:center}
+.ok{display:none;text-align:center;padding:20px}
+.ok.show{display:block}
+.ok .big{font-size:44px}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr}}
+
+footer{padding:48px 0;text-align:center;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+.footlinks{display:flex;gap:22px;justify-content:center;margin:16px 0;flex-wrap:wrap}
+.footlinks a:hover{color:#fff}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .zoom-reveal{opacity:1}
+  .cbub{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-layer"><span class="orb a"></span><span class="orb b"></span><span class="orb c"></span><span class="bg-grid"></span></div>
+
+<nav id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo"><span class="dot">⚡</span>VIRTA<span style="color:var(--o1)">MATIC</span></a>
+    <div class="nav-links">
+      <a href="#services">Services</a><a href="#demo">Demo</a><a href="#industries">Industries</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="btn btn-brand mag">Book a free call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="top">
+  <div class="float-card fc1 parallax" data-depth="2"><span class="ic">💬</span><div><b>New booking</b><small>via AI chat · 21:14</small></div></div>
+  <div class="float-card fc2 parallax" data-depth="3"><span class="ic">📅</span><div><b>Table for 4</b><small>auto-confirmed</small></div></div>
+  <div class="float-card fc3 parallax" data-depth="4"><span class="ic">⚡</span><div><b>Lead replied</b><small>in 12 seconds</small></div></div>
+  <div class="float-card fc4 parallax" data-depth="2.5"><span class="ic">★</span><div><b>Review answered</b><small>automatically</small></div></div>
+
+  <div class="hero wrap">
+    <span class="badge st" style="animation-delay:0s">🇫🇮 <b>Now onboarding</b>&nbsp;· Lahti &amp; Helsinki</span>
+    <h1><span class="grad-h st" style="display:block;animation-delay:.12s">Automate the boring.</span><span class="brand-h st" style="display:block;animation-delay:.24s">Book more customers.</span></h1>
+    <p class="sub st" style="animation-delay:.4s">Virtamatic installs AI that answers your customers 24/7, books appointments while you sleep, and follows up on every lead — so you never lose business to a missed call again.</p>
+    <div class="hero-cta st" style="animation-delay:.54s">
+      <a href="#contact" class="btn btn-brand mag">Get your free audit</a>
+      <a href="#demo" class="btn btn-ghost mag">See it in action</a>
+    </div>
+  </div>
+  <div class="scrollcue"><span>scroll</span><span class="chev"></span></div>
+</header>
+
+<!-- AI ZOOM -->
+<section class="zoom-sec" id="zoom">
+  <div class="zoom-sticky">
+    <div class="streak" id="s1"></div><div class="streak" id="s2"></div><div class="streak" id="s3"></div><div class="streak" id="s4"></div>
+    <div class="zoom-core" id="zoomCore">
+      <div class="core-panel"><span class="glyph brand-h">AI</span></div>
+    </div>
+    <div class="zoom-reveal" id="zoomReveal">
+      <h2 class="grad-h">Your business,<br>running itself.</h2>
+      <p>Chat, bookings, follow-ups and content — handled automatically, day and night, in Finnish and English.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<section class="blk" style="padding-top:20px">
+  <div class="wrap" style="text-align:center;margin-bottom:26px"><span class="eyebrow">Built for local business in Lahti, Helsinki &amp; beyond</span></div>
+  <div class="marq"><div class="marq-track" id="m1"></div></div>
+  <div class="marq rev" style="margin-top:14px"><div class="marq-track" id="m2"></div></div>
+</section>
+
+<!-- STATS -->
+<section class="blk" style="padding-top:40px">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal"><div class="n brand-h"><span class="count" data-to="10" data-suffix="+ hrs">0</span></div><div class="l">saved every week</div></div>
+      <div class="stat reveal"><div class="n brand-h">24/7</div><div class="l">customer replies</div></div>
+      <div class="stat reveal"><div class="n brand-h">&lt;<span class="count" data-to="1" data-suffix=" min">0</span></div><div class="l">lead response time</div></div>
+      <div class="stat reveal"><div class="n brand-h"><span class="count" data-to="30" data-suffix=" days">0</span></div><div class="l">to go live</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="blk" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What we build</span><h2 class="grad-h">Four automations</h2><p>Pick one or stack them all. Set up for you, running on autopilot.</p></div>
+    <div class="cards">
+      <div class="tcard reveal"><span class="glow"></span><span class="n">01</span><div class="ic">💬</div><h3>AI chatbot &amp; support</h3><p>Answers FAQs, prices &amp; hours instantly, books inside the chat, and hands off to you only when it really matters. 24/7, Finnish &amp; English.</p></div>
+      <div class="tcard reveal"><span class="glow"></span><span class="n">02</span><div class="ic">📅</div><h3>Booking &amp; scheduling</h3><p>Self-service booking synced to your calendar, automatic reminders that cut no-shows, and a waitlist that fills last-minute gaps.</p></div>
+      <div class="tcard reveal"><span class="glow"></span><span class="n">03</span><div class="ic">🎯</div><h3>Lead capture &amp; follow-up</h3><p>Every form, DM and missed call answered in under a minute, then nurtured until they book. No lead ever goes cold.</p></div>
+      <div class="tcard reveal"><span class="glow"></span><span class="n">04</span><div class="ic">✨</div><h3>Content on autopilot</h3><p>AI-written social posts in your voice, automatic replies to Google &amp; Facebook reviews, and email campaigns done for you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="blk" id="demo">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Live demo</span><h2 class="grad-h">See exactly what you get</h2><p>Not slides — the actual experience your customers and your calendar get from day one. Watch the assistant book a table in real time.</p></div>
+    <div class="demo-grid">
+      <div class="phone reveal" id="phoneDemo">
+        <div class="notch"></div>
+        <div class="screen">
+          <div class="top"><span class="av">⚡</span><div><b>Virtamatic Assistant</b><small>● online · replies instantly</small></div></div>
+          <div class="chatwin" id="chatwin"></div>
+        </div>
+      </div>
+      <div class="demo-cards">
+        <div class="dcard reveal"><h4>📅 A calendar that fills itself</h4><div class="cap">Customers self-book; reminders go out automatically.</div>
+          <div class="cal"><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span class="on">9</span><span class="on">10</span><span>11</span><span class="on">12</span><span class="on">13</span><span class="on">14</span><span class="on">15</span><span>16</span></div>
+        </div>
+        <div class="dcard reveal"><h4>⚡ Every lead, answered</h4><div class="cap">Replied in seconds, then followed up till they book.</div>
+          <div class="leadrow"><span class="g">✓</span><div><b>Website form → replied</b><br><span>8 seconds ago</span></div></div>
+          <div class="leadrow"><span class="g">↻</span><div><b>Follow-up #1 sent</b><br><span>booking link delivered</span></div></div>
+        </div>
+        <div class="dcard reveal"><h4>★ Reviews replied for you</h4><div class="cap">Every Google review answered on-brand.</div>
+          <div class="review"><span class="stars">★★★★★</span> "Fast service, lovely place!"<div class="aireply"><b>Virtamatic ↳</b> Kiitos paljon, Anna! We'd love to have you back soon 🙌</div></div>
+        </div>
+        <div class="dcard reveal"><h4>✨ Posts written for you</h4><div class="cap">On-brand social &amp; email, drafted automatically.</div>
+          <div class="post"><div class="hdl">Weekend special is live! 🍽️</div>Book your table before it's full — link in bio.<div class="tags">#Lahti #ravintola #weekend</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px" class="reveal">
+      <a href="#contact" class="btn btn-brand mag">Get this set up for your business</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="blk" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Dead simple</span><h2 class="brand-h">Live in 3 steps</h2><p>You keep running your business. We build, test and switch it on.</p></div>
+    <div class="steps">
+      <div class="step reveal"><div class="num brand-h">01</div><h3>Free audit call</h3><p>A 20-minute chat where we map exactly where you're losing time and customers.</p></div>
+      <div class="step reveal"><div class="num brand-h">02</div><h3>We build &amp; connect</h3><p>We set it all up, train the AI on your business, and plug into your tools. You review.</p></div>
+      <div class="step reveal"><div class="num brand-h">03</div><h3>Go live &amp; grow</h3><p>Your automations run 24/7. We monitor, tweak and report so results keep improving.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES: PROBLEM -> SOLUTION -->
+<section class="blk" id="industries">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Built for your industry</span><h2 class="grad-h">Your pain points, solved</h2><p>Every trade loses business a different way. Here's exactly what's leaking — and what Virtamatic does about it.</p></div>
+    <div class="stack">
+
+      <div class="stack-card"><div class="sc-grid">
+        <div><div class="n">01</div><span class="eyebrow">Restaurants &amp; cafés</span><h3>Stop losing bookings after hours</h3>
+          <div class="ps">
+            <div class="ps-block ps-prob"><div class="ttl">The problem</div><ul>
+              <li>The phone rings out during the dinner rush — that booking's gone.</li>
+              <li>Enquiries land after you close and sit unanswered till morning.</li>
+              <li>No time to reply to reviews or keep social alive.</li>
+            </ul></div>
+            <div class="ps-block ps-sol"><div class="ttl">What Virtamatic does</div><ul>
+              <li>AI answers "open? / table free?" instantly and books it, 24/7.</li>
+              <li>Takes reservations &amp; takeaway orders right in the chat.</li>
+              <li>Auto-replies to Google reviews and drafts your posts.</li>
+            </ul></div>
+          </div>
+          <div class="metric-row"><div class="metric"><div class="mv brand-h">24/7</div><div class="ml">answered</div></div><div class="metric"><div class="mv brand-h">&lt;10s</div><div class="ml">reply time</div></div></div>
+        </div>
+        <div class="mock"><div class="bubble them">Hi! Any table for 4 tonight at 8?</div><div class="bubble ai">Yes! 20:00 for 4 is free 🎉 I've booked it under your name — see you tonight!</div><div class="bubble them">Perfect, kiitos!</div></div>
+      </div></div>
+
+      <div class="stack-card"><div class="sc-grid">
+        <div><div class="n">02</div><span class="eyebrow">Clinics &amp; salons</span><h3>Fewer no-shows, fuller calendar</h3>
+          <div class="ps">
+            <div class="ps-block ps-prob"><div class="ttl">The problem</div><ul>
+              <li>Staff stuck on the phone booking instead of serving clients.</li>
+              <li>No-shows leave chairs empty — pure lost revenue.</li>
+              <li>Last-minute cancellations go unfilled.</li>
+            </ul></div>
+            <div class="ps-block ps-sol"><div class="ttl">What Virtamatic does</div><ul>
+              <li>Clients self-book 24/7, synced straight to your calendar.</li>
+              <li>Automatic reminders cut no-shows by up to a third.</li>
+              <li>A smart waitlist auto-fills cancelled slots.</li>
+            </ul></div>
+          </div>
+          <div class="metric-row"><div class="metric"><div class="mv brand-h">-30%</div><div class="ml">no-shows</div></div><div class="metric"><div class="mv brand-h">+18%</div><div class="ml">calendar fill</div></div></div>
+        </div>
+        <div class="mock"><div class="cal"><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span class="on">9</span><span class="on">10</span><span>11</span><span class="on">12</span><span class="on">13</span><span class="on">14</span><span class="on">15</span><span>16</span></div><div style="font-size:12.5px;color:var(--muted);text-align:center">Reminder sent · slot auto-filled from waitlist</div></div>
+      </div></div>
+
+      <div class="stack-card"><div class="sc-grid">
+        <div><div class="n">03</div><span class="eyebrow">Real estate &amp; law</span><h3>Never let a lead go cold</h3>
+          <div class="ps">
+            <div class="ps-block ps-prob"><div class="ttl">The problem</div><ul>
+              <li>Online leads wait hours for a reply — and book with someone else.</li>
+              <li>Every enquiry needs qualifying, which eats your day.</li>
+              <li>Follow-up is inconsistent, so cases and deals slip away.</li>
+            </ul></div>
+            <div class="ps-block ps-sol"><div class="ttl">What Virtamatic does</div><ul>
+              <li>AI replies in under a minute, qualifies, and books the consultation.</li>
+              <li>Consistent automated follow-up until they respond.</li>
+              <li>You spend time with clients, not chasing them.</li>
+            </ul></div>
+          </div>
+          <div class="metric-row"><div class="metric"><div class="mv brand-h">&lt;1 min</div><div class="ml">lead reply</div></div><div class="metric"><div class="mv brand-h">0</div><div class="ml">leads lost</div></div></div>
+        </div>
+        <div class="mock"><div class="notif"><span class="dotg">⚡</span><div><b>New enquiry → replied in 42s</b><br><span style="color:var(--muted)">Website contact form</span></div></div><div class="notif"><span class="dotg">🎯</span><div><b>Qualified &amp; booked</b><br><span style="color:var(--muted)">Consultation · Wed 15:00</span></div></div></div>
+      </div></div>
+
+      <div class="stack-card"><div class="sc-grid">
+        <div><div class="n">04</div><span class="eyebrow">Trades &amp; home services</span><h3>Turn missed calls into booked jobs</h3>
+          <div class="ps">
+            <div class="ps-block ps-prob"><div class="ttl">The problem</div><ul>
+              <li>You can't answer mid-job — a missed call is a lost job.</li>
+              <li>Quoting and scheduling back-and-forth eats your evenings.</li>
+              <li>Enquiries land outside work hours and slip away.</li>
+            </ul></div>
+            <div class="ps-block ps-sol"><div class="ttl">What Virtamatic does</div><ul>
+              <li>AI answers instantly, sends a quote/booking link, schedules the visit.</li>
+              <li>Captures every missed call and follows up automatically.</li>
+              <li>Books jobs 24/7 — you win the work you used to miss.</li>
+            </ul></div>
+          </div>
+          <div class="metric-row"><div class="metric"><div class="mv brand-h">0</div><div class="ml">missed calls</div></div><div class="metric"><div class="mv brand-h">+27%</div><div class="ml">jobs booked</div></div></div>
+        </div>
+        <div class="mock"><div class="notif"><span class="dotg">📞</span><div><b>Missed call → handled</b><br><span style="color:var(--muted)">Quote sent · visit booked Thu 09:00</span></div></div><div class="notif"><span class="dotg">✅</span><div><b>New job confirmed</b><br><span style="color:var(--muted)">Kitchen tap replacement · Lahti</span></div></div></div>
+      </div></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="blk">
+  <div class="wrap">
+    <div class="guar reveal"><div class="in"><span class="eyebrow">Zero-risk start</span><h3 class="grad-h" style="margin-top:12px">If it doesn't save you time in 30 days, you don't pay for the next month.</h3><p style="color:var(--muted);margin-top:14px;font-size:16px">Every business is different — you'll get a plan built around yours after a free 20-minute audit.</p></div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="blk" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Good questions</span><h2 class="grad-h">Everything you're wondering</h2></div>
+    <div class="faq" id="faqList">
+      <div class="q"><button>Is this complicated to set up?<span class="plus">+</span></button><div class="a"><p>Not for you. We handle the whole build, training and integration. Your only job is a short call and a quick review before we go live — usually done in 2–4 weeks.</p></div></div>
+      <div class="q"><button>Does the AI speak Finnish?<span class="plus">+</span></button><div class="a"><p>Fluently. Every automation works in Finnish and English (and more if your customers need it), so nothing feels robotic or off.</p></div></div>
+      <div class="q"><button>Will it replace my staff?<span class="plus">+</span></button><div class="a"><p>No — it removes the repetitive work that eats their day, so your team focuses on the things that actually need a human.</p></div></div>
+      <div class="q"><button>What does it connect to?<span class="plus">+</span></button><div class="a"><p>Your website, WhatsApp, Instagram &amp; Facebook, Google Business, most calendars and booking tools, and email. We usually plug straight into what you already use.</p></div></div>
+      <div class="q"><button>Is my data GDPR-compliant?<span class="plus">+</span></button><div class="a"><p>Yes. We build on GDPR-compliant tools, keep data in the EU where possible, and set everything up so customer information is handled correctly.</p></div></div>
+      <div class="q"><button>How much does it cost?<span class="plus">+</span></button><div class="a"><p>It depends on which automations you need — so we build a custom quote after your free 20-minute audit, with no obligation. Most clients save more in staff hours than it costs.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="blk contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-copy">
+      <span class="eyebrow">Let's talk</span>
+      <h2 id="contactHead" data-text="Book your free audit."></h2>
+      <p>20 minutes. We'll show you the 2–3 automations that would make the biggest difference — and build you a custom quote around your business. Free, no pressure.</p>
+      <div class="cline"><span class="ic">📞</span><a href="tel:+358465359968"><b>+358 46 535 9968</b></a></div>
+      <div class="cline"><span class="ic">✉️</span><span>hello@virtamatic.com</span></div>
+      <div class="cline"><span class="ic">🌐</span><span>virtamatic.com · Lahti · Helsinki · all of Finland</span></div>
+    </div>
+    <form id="form" onsubmit="return submitForm(event)">
+      <div id="formInner">
+        <label>Your name</label><input name="name" placeholder="Matti Meikäläinen" required>
+        <label>Business name</label><input name="business" placeholder="Your business" required>
+        <label>Email or phone</label><input name="contact" placeholder="you@business.fi" required>
+        <label>What kind of business?</label>
+        <select name="type"><option>Restaurant / café</option><option>Clinic / salon</option><option>Real estate / law</option><option>Trades / home services</option><option>Something else</option></select>
+        <label>What would you love to automate? (optional)</label>
+        <textarea name="msg" placeholder="e.g. we keep missing calls when we're busy..."></textarea>
+        <button type="submit" class="btn btn-brand mag">Get my free audit →</button>
+      </div>
+      <div class="ok" id="ok"><div class="big">⚡</div><h3 class="brand-h" style="font-size:24px">Opening your email…</h3><p style="color:var(--muted);margin-top:10px">Your message is ready to send. We reply within one business day.</p></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="logo" style="justify-content:center;margin-bottom:14px"><span class="dot">⚡</span>VIRTA<span style="color:var(--o1)">MATIC</span></a>
+    <div class="footlinks"><a href="#services">Services</a><a href="#demo">Demo</a><a href="#industries">Industries</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></div>
+    <p>AI automation for local businesses in Lahti, Helsinki &amp; across Finland.</p>
+    <p style="margin-top:8px;opacity:.55">© 2026 Virtamatic · virtamatic.com</p>
+  </div>
+</footer>
+
+<script>
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const nav = document.getElementById('nav');
+addEventListener('scroll', ()=>{ nav.classList.toggle('scrolled', scrollY>20); }, {passive:true});
+
+const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const cio = new IntersectionObserver((es)=>{es.forEach(e=>{ if(e.isIntersecting){ const el=e.target, to=+el.dataset.to, suf=el.dataset.suffix||''; const dur=1200; let t0=null; function step(ts){ if(t0===null)t0=ts; const p=Math.min((ts-t0)/dur,1); el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+suf; if(p<1)requestAnimationFrame(step);} requestAnimationFrame(step); cio.unobserve(el);}})},{threshold:.6});
+document.querySelectorAll('.count').forEach(el=>cio.observe(el));
+
+if(!reduce){document.querySelectorAll('.mag').forEach(el=>{
+  el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect();const x=e.clientX-r.left-r.width/2;const y=e.clientY-r.top-r.height/2;el.style.transform=`translate(${x/4}px,${y/4}px)`;});
+  el.addEventListener('mouseleave',()=>{el.style.transform='';});
+});}
+
+if(!reduce){document.querySelectorAll('.tcard').forEach(card=>{
+  card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const px=(e.clientX-r.left)/r.width;const py=(e.clientY-r.top)/r.height;card.style.transform=`perspective(800px) rotateX(${(py-.5)*-10}deg) rotateY(${(px-.5)*10}deg)`;const g=card.querySelector('.glow');g.style.left=(e.clientX-r.left)+'px';g.style.top=(e.clientY-r.top)+'px';});
+  card.addEventListener('mouseleave',()=>{card.style.transform='';});
+});}
+
+if(!reduce){addEventListener('mousemove',e=>{const cx=innerWidth/2,cy=innerHeight/2;document.querySelectorAll('.parallax').forEach(el=>{const d=+el.dataset.depth;el.style.transform=`translate(${(e.clientX-cx)/(40/d)}px,${(e.clientY-cy)/(40/d)}px)`;});});}
+
+const zsec=document.getElementById('zoom'),core=document.getElementById('zoomCore'),reveal=document.getElementById('zoomReveal');
+const streaks=[...document.querySelectorAll('.streak')];
+streaks.forEach((s,i)=>{s.style.top=(30+i*15)+'%';s.style.left='50%';s.style.width='0px';});
+function onZoom(){
+  const r=zsec.getBoundingClientRect();const total=zsec.offsetHeight-innerHeight;
+  let p=Math.min(Math.max(-r.top/total,0),1);
+  const cs=1+p*8, co=Math.max(1-p*1.4,0);
+  core.style.transform=`scale(${cs})`;core.style.opacity=co;
+  const rp=Math.max((p-0.45)/0.55,0);
+  reveal.style.opacity=rp;reveal.style.transform=`scale(${0.9+rp*0.1})`;
+  streaks.forEach((s,i)=>{const w=p*innerWidth*(0.6+i*0.15);s.style.width=w+'px';s.style.transform=`translate(-50%,0) rotate(${i%2?2:-2}deg)`;s.style.opacity=p<0.05||p>0.55?0:0.6;});
+}
+
+const stackCards=[...document.querySelectorAll('.stack-card')];
+function onStack(){
+  stackCards.forEach((card,i)=>{
+    const next=stackCards[i+1];if(!next)return;
+    const nr=next.getBoundingClientRect();
+    const prog=Math.min(Math.max((110-nr.top)/(innerHeight*0.7),0),1);
+    const scale=1-(1-0.92)*prog;card.style.transform=`scale(${scale})`;card.style.opacity=1-prog*0.25;
+  });
+}
+
+let ticking=false;
+function loop(){ if(!reduce){onZoom();onStack();} ticking=false; }
+addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(loop);ticking=true;}},{passive:true});
+addEventListener('resize',loop); loop();
+
+const chips=[['💬','AI Chatbots'],['📅','24/7 Booking'],['⚡','Instant Follow-up'],['★','Review Auto-Reply'],['🟢','WhatsApp'],['🔔','No-Show Reminders'],['✨','Content Autopilot'],['🍽️','Restaurants'],['💇','Clinics & Salons'],['🏠','Real Estate & Law'],['🔧','Trades'],['📈','More Bookings']];
+function fill(track,list){const html=list.map(c=>`<span class="chip"><span class="d"></span>${c[1]}</span>`).join('');track.innerHTML=html+html;}
+fill(document.getElementById('m1'),chips);
+fill(document.getElementById('m2'),[...chips].reverse());
+
+/* animated chat demo */
+const convo=[
+ {w:'them',t:"Hi! Are you open tonight? 🙌"},
+ {w:'ai',t:"Yes — we're open till 23:00! Want me to book you a table?"},
+ {w:'them',t:"Yes please, for 4 at 20:00"},
+ {w:'ai',t:"Done ✅ Table for 4 at 20:00, under your name. See you tonight!"},
+ {w:'them',t:"Amazing, kiitos!"},
+ {w:'ai',t:"Kiitos! I've sent a confirmation + a reminder 📩"}
+];
+const chatwin=document.getElementById('chatwin');
+function renderStatic(){convo.forEach(m=>{const b=document.createElement('div');b.className='cbub '+m.w;b.style.opacity=1;b.style.transform='none';b.textContent=m.t;chatwin.appendChild(b);});}
+function playChat(){
+  let i=0; chatwin.innerHTML='';
+  (function next(){
+    if(i>=convo.length){ setTimeout(()=>{chatwin.innerHTML='';i=0;next();},2800); return; }
+    const m=convo[i];
+    const show=()=>{const b=document.createElement('div');b.className='cbub '+m.w;b.textContent=m.t;chatwin.appendChild(b);chatwin.scrollTop=chatwin.scrollHeight;i++;setTimeout(next,m.w==='ai'?1200:850);};
+    if(m.w==='ai'){const tp=document.createElement('div');tp.className='typing';tp.innerHTML='<span></span><span></span><span></span>';chatwin.appendChild(tp);chatwin.scrollTop=chatwin.scrollHeight;setTimeout(()=>{tp.remove();show();},950);}
+    else show();
+  })();
+}
+if(chatwin){
+  if(reduce){renderStatic();}
+  else{const pio=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){playChat();pio.unobserve(e.target);}})},{threshold:.4});pio.observe(document.getElementById('phoneDemo'));}
+}
+
+document.querySelectorAll('#faqList .q').forEach(q=>{const a=q.querySelector('.a');q.querySelector('button').addEventListener('click',()=>{const open=q.classList.contains('open');document.querySelectorAll('#faqList .q').forEach(o=>{o.classList.remove('open');o.querySelector('.a').style.maxHeight=null;});if(!open){q.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}});});
+
+const ch=document.getElementById('contactHead');const txt=ch.dataset.text;
+ch.innerHTML=[...txt].map(c=>`<span class="char">${c===' '?'&nbsp;':c}</span>`).join('');
+const chars=[...ch.querySelectorAll('.char')];
+function onChars(){const r=ch.getBoundingClientRect();const start=innerHeight*0.85,end=innerHeight*0.35;const p=Math.min(Math.max((start-r.top)/(start-end),0),1);const lit=Math.floor(p*chars.length);chars.forEach((c,i)=>c.style.opacity=i<=lit?1:0.18);}
+addEventListener('scroll',onChars,{passive:true});onChars();
+
+function submitForm(e){e.preventDefault();const f=e.target;const s=encodeURIComponent('Free automation audit — '+(f.business.value||'New enquiry'));const b=encodeURIComponent(`Name: ${f.name.value}\nBusiness: ${f.business.value}\nContact: ${f.contact.value}\nType: ${f.type.value}\n\nWants to automate:\n${f.msg.value}`);document.getElementById('formInner').style.display='none';document.getElementById('ok').classList.add('show');setTimeout(()=>{window.location.href='mailto:hello@virtamatic.com?subject='+s+'&body='+b;},600);return false;}
+</script>
+</body>
+</html>
