@@ -1,0 +1,10 @@
+name = "virtamatic-site"
+compatibility_date = "2026-07-01"
+
+[assets]
+directory = "."
+
+routes = [
+  { pattern = "virtamatic.com", custom_domain = true },
+  { pattern = "www.virtamatic.com", custom_domain = true }
+]
